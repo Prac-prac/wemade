@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zenga.mapper.BreadMapper">
+	
+	
+	<select id="get" resultType="org.zenga.domain.BreadVO">
+		select * from tbl_bread where breadno in
+		<foreach collection="breadNo" item="arr" open="(" close=")" separator=",">
+		 #{arr}
+		</foreach>
+		order by breadno
+	</select>
+
+</mapper>

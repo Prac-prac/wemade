@@ -1,0 +1,297 @@
+/* COMMON */
+body{
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1,4;
+    font-family: 'Nanum Gothic', sans-serif;
+    height: 1850px;
+}
+img{
+    display: block;
+}
+a{
+    text-decoration: none;
+}
+.inner{
+    width: 1100px;
+    margin: 0 auto;
+    /*위치상 부모 요소 되는 경우 많아 미리 relative 설정*/
+    position: relative;
+}
+.btn{
+    width: 130px;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+    /*btn 안 문자의 정렬*/
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    /*a태그나 span태그에 부여되었을때 대비*/
+    display: block;
+    /*transition을 hover에 주지 않고 여기에 주네?*/
+    transition: .4s;
+}
+.btn:hover{
+    background-color: #333;
+    color: #fff;
+}
+.btn.btn--reverse{
+    background-color: #333;
+    color: #fff;
+}
+.btn.btn--reverse:hover{
+    /*투명*/
+    background-color: transparent;
+    color: #333;
+}
+.btn.btn--brown{
+    color: #592B18;
+    border-color: #592B18;
+}
+.btn.btn--brown:hover{
+    color: #fff;
+    background-color: #592B18; 
+}
+.btn.btn--gold{
+    color: #D9AA8A;
+    border-color: #D9AA8A;
+}
+.btn.btn--gold:hover{
+    color: #fff;
+    background-color: #D9AA8A;
+}
+.btn.btn--white{
+    color: #fff;
+    border-color: #fff;
+}
+.btn.btn--white:hover{
+    color: #333;
+    background-color: #fff;
+}
+.back-to-position{
+    opacity: 0;
+    transition: 1s;
+}
+.back-to-position.to-right{
+    /*-150px만큼 왼쪽된 요소 원래 상태로 돌아오며 오른쪽으로*/
+    transform: translateX(-150px);
+}
+.back-to-position.to-left{
+    /*-150px만큼 왼쪽된 요소 원래 상태로 돌아오며 오른쪽으로*/
+    transform: translateX(150px);
+}
+/*.show는 main.js에서 설정했듯이 0.8일 때 생성됨*/
+.show .back-to-position{
+    opacity: 1;
+    transform: translateX(0);
+}
+.show .back-to-position.delay-0{
+    transition-delay: 0s;
+}
+.show .back-to-position.delay-1{
+    transition-delay: 0.3s;
+}
+.show .back-to-position.delay-2{
+    transition-delay: 0.6s;
+}
+.show .back-to-position.delay-3{
+    transition-delay: 0.9s;
+}
+
+
+/* HEADER */
+header{
+    background-color: #f6f5f0;
+    border-bottom: 1px solid #c8c8c8;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+}
+
+header > .inner{
+    height: 120px; 
+}
+
+header .logo{
+    position: absolute;
+    /* 높이값 필요 */
+    height: 75px;
+    /* 끝점을 잡아줌 */
+    top: 0;
+    bottom: 0;
+    /* 부모 요소 기준 왼쪽에 붙어있다 명시 */
+    left: 0;
+    margin : auto;
+    display: block;
+}
+header .inner ul{
+	width: 400px;
+    position: absolute;
+    /* 높이값 필요 */
+    height: 75px;
+    /* 끝점을 잡아줌 */
+    top: 0;
+    bottom: 0;
+    /* 부모 요소 기준 왼쪽에 붙어있다 명시 */
+    left: 700px;
+    margin : auto;
+    display: flex;
+
+}
+
+/*header 오른쪽 위 로그인, 스토어, 카트 */
+header .inner ul li{
+	width: 50px;
+	margin: 10px;
+	padding : 10px;
+	height: 55px;
+	align-items: center;
+
+}
+
+
+    #sessionUser{
+    position: absolute;
+    width: 125px;
+    height: 30px;
+	font-size: 24px;
+	font-family: 'Song Myung', serif;
+	text-align:center;
+	border: 3px solid black;
+	border-radius: 300px;
+	background-color: white;
+	z-index: 2;
+
+    }
+    #userContent{
+   		position: absolute;
+    	 width: 155px;
+    	 height: 90px;
+    	 background-color: white;
+    	 font-family: 'Song Myung', serif;
+    	 background-color: white;
+    	 z-index: 1;
+    	 top: 35px;
+		 left: 5px;
+    	 border: 3px solid black;
+		border-radius: 10px;
+		display:none;
+    }
+
+    #personal, #personalorder{
+    	position: absolute;
+    	 top: 35px;
+		 left: 5px;
+		 padding: 2px;
+    }
+     #personalorder{
+    	 top: 60px;
+		 left: 5px;
+    }
+     #personal:hover, #personalorder:hover{
+	 background-color: #f6f5f0;
+	 cursor: pointer;
+    }
+header .inner ul li img{
+	position: absolute;
+	display: inline-block;
+	height: 57px;
+	border: 3px solid black;
+	border-radius: 300px;
+	cursor: pointer;
+}
+header .inner ul li img#login, header .inner ul li img#logout{
+	left: 170px;
+}
+header .inner ul li img#store{
+	left: 250px;
+}
+header .inner ul li img#cart{
+	left: 330px;
+}
+
+
+
+
+/* FOOTER */
+footer{
+    background-color: #272727;
+    border-top: 1px solid #333;
+}
+footer .inner{
+    padding: 40px 0 60px 0;
+}
+footer .menu{
+    display: flex;
+    justify-content: center;
+}
+footer .menu li{
+    position: relative;
+}
+footer .menu li::before{
+    content: "";
+    width: 3px;
+    height: 3px;
+    background-color: #555;
+    /*before 가상 요소 inline
+    But position:absolute, fixed는 display:block;*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -1px;
+    margin: auto;
+}
+footer .menu li:last-child::before{
+    display: none;
+}
+footer .menu li a{
+    color: #ccc;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 15px;
+    display: block;
+}
+footer .menu li a.green{
+    color: #669900;
+}
+footer .btn-group{
+    margin-top: 20px;
+    display: flex;
+    justify-content:center ;
+}
+footer .btn-group .btn{
+    font-size: 12px;
+    margin-right: 10px;
+}
+footer .btn-group .btn:last-child{
+    margin-right: 0;
+}
+footer .info{
+    margin-top: 30px;
+    text-align: center;
+}
+footer .info span{
+    margin-right: 20px;
+    color: #999;
+    font-size: 12px;
+}
+footer .info span:last-child{
+    margin-right: 0;
+}
+footer .copyright{
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 12px;
+}
+footer .logo{
+    /* img는 display:block이고 margin:0 auto; 경우, 
+    width 없이도 가운데 정렬 가능 */
+    margin: 30px auto 0;
+}

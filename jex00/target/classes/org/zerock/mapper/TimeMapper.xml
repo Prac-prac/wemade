@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mybatis는 인터페이스 이름과 xml의 namespace 속성으로 인식. 같은 이름 존재하면 병합해 처리 -->
+<!-- 이 사례도 인터페이스 존재하고 sql처리를 xml에서 하는 것으로 병합해 처리할 것 -->
+<mapper namespace="org.zerock.mapper.TimeMapper">
+	<!-- select 태그의 id 속성값 메서드 이름과 동일하게 맞춰야함 -->
+	<select id="getTime2" resultType="string">
+		SELECT sysdate FROM dual
+	</select>
+</mapper>

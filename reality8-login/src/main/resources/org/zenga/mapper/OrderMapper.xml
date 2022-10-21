@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zenga.mapper.OrderMapper">
+	
+	
+		<insert id="insertOrder"  parameterType="java.util.List">
+		insert all
+		<foreach collection="list" item="item"  separator=" ">
+		 into tbl_order (orderno,  breadno, breadname, price, cnt)
+		values 
+		 	(seq_order.nextval
+		 		, #{item.breadNo}
+		 		, (select distinct tbl_bread.breadname from tbl_bread, tbl_order where tbl_order.breadno = #{item.breadNo} and tbl_bread.breadno=tbl_order.breadno)
+		 		, (select distinct tbl_bread.price from tbl_bread, tbl_order where tbl_order.breadno = #{item.breadNo} and tbl_bread.breadno=tbl_order.breadno)
+		 		, #{item.cnt})
+		</foreach>
+		SELECT * FROM DUAL
+	</insert>
+	
+
+
+
+		<select id="getOrderList" resultType="org.zenga.domain.OrderDetailVO">
+			select * from tbl_order order by orderno desc, breadno asc
+		</select>
+
+</mapper>
