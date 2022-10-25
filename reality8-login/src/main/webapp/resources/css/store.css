@@ -1,0 +1,51 @@
+
+
+
+/* VISUAL */
+.visual{
+    margin-top: 120px;
+    background-image: url("../img/visual_store.jpg");
+    background-position: center;
+}
+.visual .inner{
+    height: 646px;
+    /*background-color: orange ;*/
+}
+
+
+/* MAIN */
+table{
+	margin: 15px;
+}
+ td {
+	position:relative;
+	
+}
+.item{
+	width: 375px;
+	height: 375px;
+	transition: opacity 0.4s ;
+}
+.item:hover{
+	opacity: 0.2;
+}
+.icon{
+	position:absolute;
+	width: 100px;
+	height: 100px;
+	top: 130px;
+	border: 3px solid black;
+	border-radius: 300px;
+	display:none;
+}
+#cart{
+	left: 55px;
+}
+#pay{
+	left: 220px;
+}
+td.price{
+	text-align: center;
+	font-size: 30px;
+	font-family: 'Song Myung', serif;
+}
